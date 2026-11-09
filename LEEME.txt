@@ -1,0 +1,18 @@
+GRANDLY · demostración (prototipo)
+
+CÓMO ABRIRLA
+1. Descomprime la carpeta.
+2. Haz doble clic en index.html (web pública). Se abre en tu navegador, sin instalar nada.
+3. El botón ÁREA CLIENTE abre club.html. Mantén los dos archivos en la misma carpeta.
+
+CUENTAS DE PRUEBA (club)
+marta@demo.grandly / demo1234  (modalidad completa)
+joaquin@demo.grandly / demo1234  (revista digital)
+Para crear cuenta: código GRANDLY-DEMO-3M, GRANDLY-DEMO-6M o GRANDLY-DEMO-12M.
+
+QUÉ ES Y QUÉ NO ES
+- Todo funciona: navegación, revista, juegos, carta del mes, regalo con dedicatoria, accesibilidad, registro, sesión y datos separados por cuenta.
+- Las cuentas y los datos se guardan SOLO en el navegador de cada persona: no hay servidor ni seguridad real. No uses datos reales.
+- Los formularios preparan el mensaje para grandly@outlook.es (abrir mi correo / copiar); no lo envían solos.
+- Sin pagos. Precios por definir. Fotos y logo definitivos pendientes.
+- Para compartirla: envía la carpeta comprimida, o súbela a cualquier alojamiento web estático.
