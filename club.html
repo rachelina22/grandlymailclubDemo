@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>GRANDLY Club</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Jost:wght@400;500;600;700&family=Figtree:wght@400;500;600;700&display=swap">
+<style>
+:root{--blue:#1D3FAE;--navy:#101F5C;--cream:#F8F1E2;--paper:#FFFDF7;--red:#E5392B;--yel:#F7C531;--pink:#F4B9C2;--sky:#BBD3F5;--ink:#1E2747;--grey:#4A5272;--line:#D9D2BF;
+ --fd:'Instrument Serif',Georgia,serif;--fu:'Jost','Poppins',system-ui,sans-serif;--fb:'Figtree','Poppins',system-ui,sans-serif;color-scheme:light}
+*{box-sizing:border-box}html{font-size:100%}
+body{margin:0;background:var(--cream);color:var(--ink);font-family:var(--fb);font-size:1.2rem;line-height:1.6}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--navy);z-index:60}
+h1,h2,h3,p,ul,ol{margin:0}ul,ol{padding:0}button,input,select,textarea{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--red);outline-offset:3px;border-radius:4px}
+[tabindex="-1"]:focus{outline:none}
+.pad{padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.disp{font-family:var(--fd);font-weight:400;line-height:1.05;color:var(--navy);text-wrap:balance}
+.h1{font-size:clamp(2.4rem,5vw,4rem)}.h2{font-size:clamp(1.7rem,3vw,2.3rem)}
+.eyebrow{font-family:var(--fu);font-weight:600;font-size:.85rem;letter-spacing:.2em;text-transform:uppercase;color:var(--blue)}
+.muted{color:var(--grey)}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:3.4rem;padding:0 1.6rem;border-radius:999px;border:2px solid var(--navy);background:transparent;color:var(--navy);font-family:var(--fu);font-weight:600;font-size:1rem;letter-spacing:.07em;text-transform:uppercase;text-decoration:none;cursor:pointer;text-align:center}
+.btn:hover{background:var(--navy);color:var(--cream)}
+.btn-p{background:var(--blue);border-color:var(--blue);color:#fff}.btn-p:hover{background:var(--navy);border-color:var(--navy)}
+.btn-sm{min-height:3rem;padding:0 1.1rem;font-size:.9rem}
+.btn-d{border-color:#7A1A10;color:#7A1A10}.btn-d:hover{background:#7A1A10;color:#fff}
+.box{background:var(--paper);border:2px solid var(--navy);border-radius:6px;padding:1.5rem}
+.note{background:var(--yel);color:var(--navy);padding:.9rem 1.2rem;border-radius:6px;font-weight:600}
+.ok{background:#DCEFD9;color:#17421A;border:2px solid #17421A;padding:.9rem 1.2rem;border-radius:8px;font-weight:700}
+.bad{background:#FCE3DF;color:#7A1A10;border:2px solid #7A1A10;padding:.9rem 1.2rem;border-radius:8px;font-weight:700}
+.field{display:flex;flex-direction:column;gap:.4rem}.field label,.lbl{font-family:var(--fu);font-weight:600;letter-spacing:.05em}
+.inp{min-height:3.4rem;padding:.6rem 1rem;border:2px solid var(--navy);border-radius:8px;background:var(--paper);width:100%}
+textarea.inp{min-height:7rem;resize:vertical}
+.row{display:flex;gap:1rem;flex-wrap:wrap;align-items:center}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:1.3rem}.grid>*{min-width:0}
+.stripe{height:8px;background:repeating-linear-gradient(-45deg,#E5392B 0 14px,#FFFDF7 14px 28px,#1D3FAE 28px 42px,#FFFDF7 42px 56px)}
+/* acceso */
+.acc{min-height:100vh;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr)}
+@media(max-width:860px){.acc{grid-template-columns:1fr}}
+.acc-l{background:var(--blue);color:#fff;padding-block:3rem;display:flex;flex-direction:column;justify-content:space-between;gap:2rem}
+.acc-l .disp{color:#fff}
+.acc-r{padding-block:2.5rem;display:flex;flex-direction:column;gap:1.4rem;justify-content:center}
+.tabs{display:flex;gap:.5rem;flex-wrap:wrap}
+.tabs button{min-height:3.2rem;padding:0 1.2rem;border:2px solid var(--navy);background:var(--paper);border-radius:999px;font-family:var(--fu);font-weight:600;text-transform:uppercase;letter-spacing:.07em;cursor:pointer}
+.tabs button[aria-pressed="true"]{background:var(--navy);color:var(--cream)}
+.chk{display:flex;gap:.8rem;align-items:flex-start;min-height:3rem}.chk input{width:1.5rem;height:1.5rem;margin-top:.2rem;accent-color:var(--blue);flex:none}
+.logo{display:flex;align-items:center;gap:.7rem;font-family:var(--fu);font-weight:700;letter-spacing:.26em;font-size:1.35rem;color:inherit;text-decoration:none}
+/* app */
+.app{display:grid;grid-template-columns:290px minmax(0,1fr);min-height:100vh}
+.side{background:var(--navy);color:var(--cream);padding:1.4rem 1rem;display:flex;flex-direction:column;gap:1.2rem;position:sticky;top:0;height:100vh;overflow:auto}
+.side nav ul{list-style:none;display:flex;flex-direction:column;gap:.2rem}
+.side nav a{display:flex;align-items:center;justify-content:space-between;gap:.5rem;min-height:3rem;padding:.4rem .9rem;border-radius:8px;color:#DCE3F8;text-decoration:none;font-family:var(--fu);font-weight:500;font-size:1.02rem}
+.side nav a:hover{background:#1A2D78}.side nav a[aria-current="page"]{background:var(--cream);color:var(--navy);font-weight:700}
+.badge{background:var(--red);color:#fff;border-radius:99px;font-size:.8rem;padding:0 .5rem;font-weight:700}
+.side .who{border-top:1px solid #33468F;padding-top:1rem;display:flex;flex-direction:column;gap:.6rem;margin-top:auto}
+.side .who a,.side .who button{color:#fff}
+.top{display:none;background:var(--navy);color:#fff;padding-block:.6rem;align-items:center;justify-content:space-between;gap:.6rem;position:sticky;top:env(safe-area-inset-top,0px);z-index:40}
+@media(max-width:900px){.app{grid-template-columns:1fr}.top{display:flex}.side{position:fixed;inset:0 auto 0 0;width:min(320px,86vw);height:100%;z-index:80;transform:translateX(-105%);transition:transform .3s}.side.open{transform:none}}
+.main{padding-block:clamp(1.6rem,4vw,3rem) 4rem;display:flex;flex-direction:column;gap:2rem;max-width:1000px;width:100%}
+.big{display:flex;flex-direction:column;gap:.4rem;padding:1.5rem;background:var(--paper);border:2px solid var(--navy);border-radius:6px;text-decoration:none;color:var(--ink);min-height:8rem}
+.big:hover{background:var(--sky)}.big b{font-family:var(--fd);font-weight:400;font-size:1.8rem;color:var(--navy);line-height:1.1}
+.item{display:flex;justify-content:space-between;gap:1rem;align-items:center;padding:.9rem 0;border-top:1px solid var(--line);flex-wrap:wrap}
+.item>*{min-width:0}
+.tag{font-family:var(--fu);font-weight:700;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;background:var(--yel);color:var(--navy);padding:.15rem .6rem;border-radius:99px}
+.album{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:1.2rem}
+.album figure{margin:0;background:var(--paper);border:2px solid var(--navy);padding:.7rem .7rem 1rem;transform:rotate(-.6deg)}
+.album figure:nth-child(even){transform:rotate(.7deg)}
+.album img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;background:var(--sky)}
+.album .ph{aspect-ratio:4/3;background:repeating-linear-gradient(135deg,var(--cream) 0 14px,#EFE6D2 14px 28px);display:flex;align-items:center;justify-content:center;color:var(--grey);font-size:.9rem}
+.album figcaption{padding-top:.6rem}
+.checks{list-style:none;display:flex;flex-direction:column;gap:.4rem}.checks label{display:flex;gap:.9rem;align-items:center;min-height:3rem;cursor:pointer}.checks input{width:1.6rem;height:1.6rem;accent-color:var(--blue)}
+.prog{height:14px;background:var(--cream);border:2px solid var(--navy);border-radius:99px;overflow:hidden}.prog>div{height:100%;background:var(--blue);transition:width .4s}
+.q button.o{display:block;width:100%;text-align:left;min-height:3.2rem;padding:.5rem 1.1rem;border:2px solid var(--navy);background:var(--paper);border-radius:10px;cursor:pointer;margin-top:.6rem}
+.q button.o.r{background:#DCEFD9}.q button.o.w{background:#FCE3DF}
+details{border-top:1px solid var(--line);padding:.8rem 0}summary{cursor:pointer;font-weight:700;min-height:2.6rem;display:flex;align-items:center}
+.toast{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(1.2rem + env(safe-area-inset-bottom,0px));background:var(--navy);color:var(--cream);padding:.9rem 1.4rem;border-radius:10px;z-index:90;font-weight:600;max-width:90vw}
+.view:not([hidden]){animation:rise .4s ease both}@keyframes rise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+.skip{position:absolute;left:-999px;top:0;background:var(--navy);color:#fff;padding:.8rem;z-index:100}.skip:focus{left:8px;top:8px}
+</style></head><body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><symbol id="lg" viewBox="0 0 44 40"><path d="M2 40V18a9 9 0 0 1 18 0v22z" fill="#1D3FAE"/><path d="M13 40V12a10 10 0 0 1 20 0v28z" fill="#E5392B"/><path d="M26 40V20a8 8 0 0 1 16 0v20z" fill="#F7C531"/></symbol></defs></svg>
+<a class="skip" href="#view">Saltar al contenido</a>
+<div id="root"></div>
+<div class="toast" id="toast" role="status" hidden></div>
+<script>
+/* GRANDLY CLUB · área cliente (prototipo). Independiente de la web pública; comparte marca y, en producción, backend/BBDD.
+   AVISO: en esta demo las cuentas viven en el navegador (localStorage). NO es seguridad real: la autenticación real
+   (hash de contraseña con argon2/bcrypt en servidor, sesiones con cookie HttpOnly, permisos por usuario en la BBDD)
+   se conecta al sustituir el objeto API de abajo. */
+(function(){
+var PUBLIC_URL='index.html';
+var $=function(s,r){return(r||document).querySelector(s)};
+function esc(s){return String(s).replace(/[&<>"']/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})}
+function ls(k,v){try{if(v===undefined)return localStorage.getItem(k);if(v===null)localStorage.removeItem(k);else localStorage.setItem(k,v)}catch(e){return null}}
+function ss(k,v){try{if(v===undefined)return sessionStorage.getItem(k);if(v===null)sessionStorage.removeItem(k);else sessionStorage.setItem(k,v)}catch(e){return null}}
+function J(s,d){try{var v=JSON.parse(s);return v==null?d:v}catch(e){return d}}
+function toast(t){var e=$('#toast');e.textContent=t;e.hidden=false;clearTimeout(toast.t);toast.t=setTimeout(function(){e.hidden=true},3000)}
+function uid(){return Math.random().toString(36).slice(2,10)}
+
+/* ---------- API simulada (punto de sustitución por el backend real) ---------- */
+function sha(t){if(window.crypto&&crypto.subtle&&window.TextEncoder){return crypto.subtle.digest('SHA-256',new TextEncoder().encode(t)).then(function(b){return Array.prototype.map.call(new Uint8Array(b),function(x){return('0'+x.toString(16)).slice(-2)}).join('')})}
+ var h=0;for(var i=0;i<t.length;i++)h=(h*31+t.charCodeAt(i))|0;return Promise.resolve('x'+h)}
+var INV={'GRANDLY-DEMO-3M':'digital','GRANDLY-DEMO-6M':'fisica','GRANDLY-DEMO-12M':'completa'};
+var PLANS={completa:{n:'Modalidad completa',inc:['Revista física cada mes','Revista digital','Carta del mes','Juegos, retos y álbum familiar']},digital:{n:'Revista digital',inc:['Revista digital','Carta del mes','Juegos, retos y álbum familiar']},fisica:{n:'Revista física',inc:['Revista física cada mes','Carta del mes','Juegos, retos y álbum familiar']}};
+var API={
+ users:function(){return J(ls('gc_users'),[])},
+ saveUsers:function(u){ls('gc_users',JSON.stringify(u))},
+ data:function(id){return J(ls('gc_d_'+id),null)||{read:{},family:[],album:[],retos:{},consent:{priv:true,news:false},sent:[]}},
+ saveData:function(id,d){ls('gc_d_'+id,JSON.stringify(d))},
+ login:function(email,pw){var u=API.users().filter(function(x){return x.email===email.toLowerCase()})[0];
+  return sha((u?u.salt:'x')+pw).then(function(h){return(u&&u.hash===h)?u:null})},
+ register:function(name,email,pw,code){var us=API.users(),pl=INV[code.trim().toUpperCase()];
+  if(!pl)return Promise.resolve({err:'El código de invitación no es válido.'});
+  if(us.some(function(x){return x.email===email.toLowerCase()}))return Promise.resolve({err:'Ya existe una cuenta con ese correo.'});
+  var salt=uid();return sha(salt+pw).then(function(h){var u={id:uid(),name:name,email:email.toLowerCase(),salt:salt,hash:h,plan:pl};us.push(u);API.saveUsers(us);return{u:u}})},
+ reset:function(email,pw){var us=API.users(),u=us.filter(function(x){return x.email===email.toLowerCase()})[0];if(!u)return Promise.resolve(false);
+  var salt=uid();return sha(salt+pw).then(function(h){u.salt=salt;u.hash=h;API.saveUsers(us);return true})}
+};
+function seed(){if(API.users().length)return;var s=uid();
+ Promise.all([sha('s1demo1234'),sha('s2demo1234')]).then(function(h){var a={id:'u_marta',name:'Marta',email:'marta@demo.grandly',salt:'s1',hash:h[0],plan:'completa'},b={id:'u_joaquin',name:'Joaquín',email:'joaquin@demo.grandly',salt:'s2',hash:h[1],plan:'digital'};
+  API.saveUsers([a,b]);
+  var da=API.data(a.id);da.family=[{id:'f1',name:'Lucía',rel:'Nieta'},{id:'f2',name:'Andrés',rel:'Hijo'}];da.album=[{id:'a1',title:'La cocina de mi madre',text:'Olía siempre a pan tostado y a canela.',date:'2026-10-12',img:''}];API.saveData(a.id,da);
+  var db=API.data(b.id);db.family=[{id:'f3',name:'Pablo',rel:'Nieto'}];db.album=[{id:'a2',title:'El primer coche',text:'Un Seat que no arrancaba los lunes.',date:'2026-09-03',img:''}];API.saveData(b.id,db);route()})}
+seed();
+
+/* ---------- sesión ---------- */
+var me=null;
+function getSession(){var s=J(ss('gc_s'),null)||J(ls('gc_s'),null);if(!s)return null;if(s.exp&&s.exp<Date.now()){setSession(null);return null}
+ return API.users().filter(function(u){return u.id===s.id})[0]||null}
+function setSession(u,remember){ss('gc_s',null);ls('gc_s',null);if(!u)return;var s=JSON.stringify({id:u.id,exp:remember?Date.now()+7*864e5:0});if(remember)ls('gc_s',s);else ss('gc_s',s)}
+var fails=0,lockUntil=0;
+
+/* ---------- vista de acceso ---------- */
+function viewAccess(mode){mode=mode||'in';
+ var h='<div class="acc"><div class="acc-l pad"><a class="logo" href="'+PUBLIC_URL+'"><svg width="46" height="42" aria-hidden="true"><use href="#lg"/></svg>GRANDLY</a>'+
+ '<div><p class="eyebrow" style="color:var(--yel)">Club · área cliente</p><h1 class="disp h1" style="margin:.8rem 0 1rem">Tu espacio privado en GRANDLY.</h1><p style="max-width:28em">Tu revista, tu buzón, tu familia y tus recuerdos, en un sitio que solo abres tú.</p></div>'+
+ '<a href="'+PUBLIC_URL+'" style="color:#fff;font-weight:600">← Volver a la web pública de GRANDLY</a></div>'+
+ '<div class="acc-r pad"><div class="stripe" aria-hidden="true"></div><div class="tabs" role="group" aria-label="Acceso"><button data-m="in" aria-pressed="'+(mode==='in')+'">Iniciar sesión</button><button data-m="up" aria-pressed="'+(mode==='up')+'">Crear cuenta</button></div><div id="accf"></div></div></div>';
+ $('#root').innerHTML=h;
+ document.querySelectorAll('.tabs button').forEach(function(b){b.onclick=function(){viewAccess(b.dataset.m)}});
+ var f=$('#accf');
+ if(mode==='in')f.innerHTML='<form id="fin" novalidate style="display:flex;flex-direction:column;gap:1.1rem"><h2 class="disp h2">Bienvenido de nuevo</h2><div class="field"><label for="e">Correo electrónico</label><input class="inp" id="e" type="email" autocomplete="username"></div><div class="field"><label for="p">Contraseña</label><input class="inp" id="p" type="password" autocomplete="current-password"></div><label class="chk"><input type="checkbox" id="rem"><span>Recordar mi sesión en este aparato (7 días)</span></label><p class="bad" id="er" role="alert" hidden></p><button class="btn btn-p" type="submit">Entrar</button><button class="btn btn-sm" type="button" id="fg" style="align-self:flex-start">He olvidado mi contraseña</button>'+
+  '<div class="box"><p class="lbl">Cuentas de demostración (ficticias)</p><p>marta@demo.grandly · demo1234 (modalidad completa)</p><p>joaquin@demo.grandly · demo1234 (revista digital)</p></div></form>';
+ else f.innerHTML='<form id="fup" novalidate style="display:flex;flex-direction:column;gap:1.1rem"><h2 class="disp h2">Crear cuenta</h2><p class="muted">El registro necesita un código de invitación o de suscripción. En la demo vale <b>GRANDLY-DEMO-3M</b>, <b>-6M</b> o <b>-12M</b>.</p><div class="field"><label for="n">Nombre</label><input class="inp" id="n" autocomplete="given-name"></div><div class="field"><label for="e">Correo electrónico</label><input class="inp" id="e" type="email" autocomplete="email"></div><div class="field"><label for="p">Contraseña (mínimo 8 caracteres)</label><input class="inp" id="p" type="password" autocomplete="new-password"></div><div class="field"><label for="p2">Repite la contraseña</label><input class="inp" id="p2" type="password" autocomplete="new-password"></div><div class="field"><label for="c">Código de invitación</label><input class="inp" id="c" autocomplete="off"></div><label class="chk"><input type="checkbox" id="acc"><span>Acepto las condiciones y la política de privacidad (textos pendientes de redactar).</span></label><p class="note">Demo: no uses datos ni contraseñas reales.</p><p class="bad" id="er" role="alert" hidden></p><button class="btn btn-p" type="submit">Crear mi cuenta</button></form>';
+ function err(t){var e=$('#er');e.textContent=t;e.hidden=false}
+ var fi=$('#fin');if(fi){fi.onsubmit=function(ev){ev.preventDefault();var em=$('#e').value.trim(),pw=$('#p').value;
+  if(Date.now()<lockUntil)return err('Demasiados intentos. Espera unos segundos.');
+  if(!em||!pw)return err('Escribe tu correo y tu contraseña.');
+  API.login(em,pw).then(function(u){if(!u){fails++;if(fails>=5){lockUntil=Date.now()+30000;fails=0}return err('Correo o contraseña incorrectos.')}fails=0;setSession(u,$('#rem').checked);go('espacio')})};
+  $('#fg').onclick=function(){viewReset()}}
+ var fu=$('#fup');if(fu){fu.onsubmit=function(ev){ev.preventDefault();var n=$('#n').value.trim(),em=$('#e').value.trim(),p=$('#p').value;
+  if(!n)return err('Falta tu nombre.');if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(em))return err('El correo no parece válido.');
+  if(p.length<8)return err('La contraseña necesita al menos 8 caracteres.');if(p!==$('#p2').value)return err('Las contraseñas no coinciden.');
+  if(!$('#acc').checked)return err('Para crear la cuenta hay que aceptar las condiciones.');
+  API.register(n,em,p,$('#c').value).then(function(r){if(r.err)return err(r.err);setSession(r.u,false);go('espacio')})}}}
+function viewReset(){var f=$('#accf');f.innerHTML='<form id="fr" novalidate style="display:flex;flex-direction:column;gap:1.1rem"><h2 class="disp h2">Recuperar el acceso</h2><p class="muted">En la versión real recibirías un enlace por correo. En esta demo no se envía nada: puedes poner una contraseña nueva aquí mismo.</p><div class="field"><label for="e">Correo de tu cuenta</label><input class="inp" id="e" type="email"></div><div class="field"><label for="p">Contraseña nueva (mínimo 8)</label><input class="inp" id="p" type="password" autocomplete="new-password"></div><p class="bad" id="er" role="alert" hidden></p><div class="row"><button class="btn btn-p" type="submit">Cambiar contraseña</button><button class="btn" type="button" id="bk">Volver</button></div></form>';
+ $('#bk').onclick=function(){viewAccess('in')};$('#fr').onsubmit=function(ev){ev.preventDefault();var e=$('#er');
+  if($('#p').value.length<8){e.textContent='Mínimo 8 caracteres.';e.hidden=false;return}
+  API.reset($('#e').value.trim(),$('#p').value).then(function(ok){if(!ok){e.textContent='No encontramos esa cuenta.';e.hidden=false}else{toast('Contraseña cambiada. Ya puedes entrar.');viewAccess('in')}})}}
+
+/* ---------- datos de contenido ---------- */
+var NAV=[['espacio','Mi espacio'],['revista','Mi revista'],['buzon','Mi buzón GRANDLY'],['generaciones','Entre generaciones'],['juegos','Juegos y retos'],['familia','Mi familia'],['album','Mi álbum de recuerdos'],['suscripciones','Mis suscripciones'],['perfil','Mi perfil'],['ayuda','Ayuda y contacto']];
+var MAG=[['Historias GRANDLY','La carta de los jueves (relato de muestra)','Remedios escribía cada jueves a su hermana, que vivía a cuatrocientos kilómetros. Empezaba siempre igual: «Aquí todo bien, y ahora te cuento». Cuando su nieta le preguntó por qué no usaba el móvil, señaló el buzón de la calle: «Esto tarda tres días, y en tres días me da tiempo a echarte de menos».'],
+['El mundo hoy','Explicado con calma: el código QR','Es un cuadrado de puntos que guarda una dirección de internet. Apunta con la cámara y espera el aviso con la dirección. No te fíes si está pegado sobre otro o llega en un mensaje que no esperabas: un banco nunca te pide claves por mensaje.'],
+['Mentes activas','Reto: la palabra escondida','Con las letras de la palabra CORREOS, ¿cuántas palabras de tres letras o más puedes formar? Apúntalas en una hoja y compáralas con las de un nieto.'],
+['Descubre','Tres curiosidades de la carta','El Penny Black, primer sello adhesivo del mundo, es británico y de 1840. En España los primeros sellos salieron en 1850. El matasellos inutiliza el sello y deja constancia del lugar y la fecha.'],
+['La cocina de casa','Natillas de la abuela','Calienta 1 litro de leche con corteza de limón. Aparta un poco de leche fría y disuelve en ella 1 cucharada de maicena. Bate 4 yemas con 100 g de azúcar, júntalo todo con la leche caliente y remueve a fuego suave hasta que espese. Canela por encima.'],
+['Entre generaciones','Este mes: historias que nos unen','Elegid una pregunta y contestad por turnos sin interrumpir: ¿Cómo era la calle donde creciste? ¿Qué hacías los sábados a los quince años? ¿Qué carta o regalo conservas todavía?'],
+['Tu espacio','Cartas de los lectores','Espacio para vuestras cartas. En la edición real publicaremos las que nos enviéis (con vuestro permiso).'],
+['El reto del mes','Una carta de verdad','Escribe diez líneas a mano a alguien que quieras, cuéntale cómo huele tu casa por la mañana, ponle sello y échala al buzón.']];
+var LET=[{id:'bienvenida',t:'Carta de bienvenida',f:'El equipo de GRANDLY',x:function(u){return 'Querido/a '+u.name+': bienvenido/a al club. Aquí encontrarás cada mes tu revista, una carta y cosas para compartir con los tuyos. Tómatelo con calma: no hay prisa y no hay obligaciones.'}},
+ {id:'nov',t:'Carta de noviembre',f:'El equipo de GRANDLY',x:function(u){return 'Noviembre llega con mantas y castañas, '+u.name+'. Este mes te proponemos escribir una carta a mano a alguien que quieras. Cuéntale algo que no sepa de ti.'}}];
+var GEN=[['Enséñame tu mundo','Cada uno enseña al otro algo que le apasiona.',['Enséñame la canción que más has escuchado este mes.','Enséñame cómo se juega a algo que te guste.','Enséñame tu plato favorito.']],
+ ['Al revés también se aprende','Los nietos enseñan a los abuelos y los abuelos a los nietos.',['Abuelos: enseñad a coser un botón.','Nietos: enseñad a mandar un mensaje de voz.','Abuelos: enseñad un juego de cartas.']],
+ ['Historias que nos unen','Preguntas para recuperar recuerdos.',['¿Cómo era la calle donde creciste?','¿Cuál fue tu primer trabajo?','¿Qué comida de tu infancia no has vuelto a encontrar?']],
+ ['Dos generaciones, un reto','Desafíos para resolver en equipo.',['Escribid una historia de seis frases, una cada uno.','Encontrad cinco cosas rojas, cuatro amarillas y tres azules.','Montad un menú con lo que haya en la nevera.']],
+ ['Pregúntale a tu abuelo','Preguntas para conocerse mejor.',['¿Qué querías ser de mayor?','¿Cuál es el mejor consejo que te han dado?','¿De qué te sientes más orgulloso?']]];
+var RETOS=['Escribe a mano una carta o postal.','Haz un pasatiempo de GRANDLY.','Pregunta a alguien joven algo que no sepas.','Camina veinte minutos y cuéntaselo a alguien.','Cuenta un recuerdo de cuando tenías quince años.'];
+var QZ=[['¿Qué planeta está más cerca del Sol?',['Venus','Mercurio','Marte'],1],['¿Cuántos días tiene un año bisiesto?',['365','366','364'],1],['¿Quién escribió «Don Quijote»?',['Cervantes','Lope de Vega','Galdós'],0]];
+
+/* ---------- vistas privadas ---------- */
+var V={};
+function head(eyebrow,t,lead){return '<header><p class="eyebrow">'+eyebrow+'</p><h1 class="disp h1" tabindex="-1" style="margin:.5rem 0 .8rem">'+t+'</h1>'+(lead?'<p class="muted" style="max-width:36em">'+lead+'</p>':'')+'</header>'}
+function persist(d){API.saveData(me.id,d)}
+V.espacio=function(el,d){var unread=LET.filter(function(l){return !d.read[l.id]}).length;
+ el.innerHTML=head('Noviembre · tu espacio','Hola, '+esc(me.name)+'.','Esto es lo nuevo de este mes.')+
+ '<div class="grid"><a class="big" href="#buzon"><span class="tag" style="align-self:flex-start">'+(unread?unread+' sin leer':'Al día')+'</span><b>Tu carta de noviembre</b><span class="muted">Ábrela con calma.</span></a><a class="big" href="#revista"><span class="tag" style="align-self:flex-start">Nueva</span><b>La revista del mes</b><span class="muted">Ocho secciones para leer a tu ritmo.</span></a><a class="big" href="#juegos"><span class="tag" style="align-self:flex-start">Reto</span><b>Reto de la semana</b><span class="muted">Cinco pequeños retos.</span></a></div>'+
+ '<div class="box"><p class="eyebrow">Para hacer en familia</p><h2 class="disp h2" style="margin:.4rem 0 .6rem">Historias que nos unen</h2><p>¿Cómo era la calle donde creciste? Contéstalo en voz alta a quien tengas cerca.</p><p style="margin-top:1rem"><a class="btn btn-sm" href="#generaciones">Ver más ideas</a></p></div>'}
+V.revista=function(el,d){var ok=me.plan!=='fisica';el.innerHTML=head('Edición de noviembre','Mi revista',ok?'Elige una sección.':'')+
+ (ok?'<div class="grid" id="ml">'+MAG.map(function(m,i){return '<button class="big" data-i="'+i+'" style="text-align:left;cursor:pointer;font:inherit"><span class="tag" style="align-self:flex-start">'+(i+1)+'</span><b>'+m[0]+'</b><span class="muted">'+m[1]+'</span></button>'}).join('')+'</div><article class="box" id="ma" hidden aria-live="polite"></article>'
+ :'<div class="box"><p>Tu modalidad es <b>Revista física</b>: la recibes en papel cada mes. La lectura digital no está incluida en ella.</p><p style="margin-top:1rem"><a class="btn btn-p btn-sm" href="#suscripciones">Ver mi suscripción</a></p></div>');
+ if(ok)$('#ml').onclick=function(e){var b=e.target.closest('button');if(!b)return;var m=MAG[+b.dataset.i],a=$('#ma');a.hidden=false;a.innerHTML='<p class="eyebrow">'+m[0]+'</p><h2 class="disp h2" tabindex="-1" style="margin:.4rem 0 .8rem">'+m[1]+'</h2><p style="max-width:36em">'+m[2]+'</p>';a.scrollIntoView({block:'start'});$('h2',a).focus({preventScroll:true})}}
+V.buzon=function(el,d){var fam=d.family;
+ el.innerHTML=head('Correspondencia','Mi buzón GRANDLY','Las cartas que te llegan y las que escribes.')+
+ '<div class="box"><p class="eyebrow">Recibidas</p><div id="inb"></div></div><div id="open" class="box" hidden></div>'+
+ '<form class="box" id="fw" style="display:flex;flex-direction:column;gap:1rem"><p class="eyebrow">Escribir una carta</p><div class="field"><label for="to">Para</label><select class="inp" id="to">'+(fam.length?fam.map(function(f){return '<option>'+esc(f.name)+' ('+esc(f.rel)+')</option>'}).join(''):'<option value="">Añade primero a alguien en «Mi familia»</option>')+'</select></div><div class="field"><label for="tx">Tu carta</label><textarea class="inp" id="tx" maxlength="1000"></textarea></div><p class="note">Se guarda solo en tu buzón. Todavía no se entrega a nadie.</p><button class="btn btn-p" type="submit" style="align-self:flex-start">Guardar en enviadas</button></form>'+
+ '<div class="box"><p class="eyebrow">Enviadas</p><div id="snt"></div></div>';
+ function draw(){$('#inb').innerHTML=LET.map(function(l){return '<div class="item"><div><b>'+l.t+'</b><br><span class="muted">'+l.f+'</span></div><div class="row">'+(d.read[l.id]?'':'<span class="tag">Nueva</span>')+'<button class="btn btn-sm" data-id="'+l.id+'">Abrir</button></div></div>'}).join('');
+  $('#snt').innerHTML=d.sent.length?d.sent.slice().reverse().map(function(s){return '<div class="item"><div><b>Para '+esc(s.to)+'</b><br><span class="muted">'+esc(s.date)+'</span><p>'+esc(s.text)+'</p></div></div>'}).join(''):'<p class="muted">Aún no has escrito ninguna.</p>'}
+ draw();
+ $('#inb').onclick=function(e){var b=e.target.closest('button');if(!b)return;var l=LET.filter(function(x){return x.id===b.dataset.id})[0];d.read[l.id]=true;persist(d);var o=$('#open');o.hidden=false;o.innerHTML='<h2 class="disp h2" tabindex="-1">'+l.t+'</h2><p style="margin-top:.8rem;max-width:36em"></p>';$('p',o).textContent=l.x(me);o.scrollIntoView({block:'start'});$('h2',o).focus({preventScroll:true});draw();nav()};
+ $('#fw').onsubmit=function(e){e.preventDefault();var t=$('#tx').value.trim(),to=$('#to').value;if(!to||!t){toast('Elige a alguien y escribe tu carta');return}d.sent.push({to:to,text:t,date:new Date().toLocaleDateString('es-ES')});persist(d);$('#tx').value='';draw();toast('Carta guardada en enviadas')}}
+V.generaciones=function(el){el.innerHTML=head('Para compartir','Entre generaciones','Cinco experiencias. Pulsa «Sacar tarjeta» para empezar.')+'<div class="grid">'+GEN.map(function(g,i){return '<div class="box" style="display:flex;flex-direction:column;gap:.8rem"><h2 class="disp h2">'+g[0]+'</h2><p class="muted">'+g[1]+'</p><p id="c'+i+'" aria-live="polite" style="font-family:var(--fd);font-size:1.5rem;line-height:1.2;min-height:3.6em"></p><button class="btn btn-sm" data-i="'+i+'" style="align-self:flex-start">Sacar tarjeta</button></div>'}).join('')+'</div>';
+ el.onclick=function(e){var b=e.target.closest('button[data-i]');if(!b)return;var c=GEN[+b.dataset.i][2];$('#c'+b.dataset.i).textContent=c[Math.floor(Math.random()*c.length)]}}
+V.juegos=function(el,d){var done=0;el.innerHTML=head('A tu ritmo','Juegos y retos','Tus retos de la semana y una partida rápida.')+'<div class="box"><p class="eyebrow">Retos de la semana</p><ul class="checks" id="rt">'+RETOS.map(function(r,i){return '<li><label><input type="checkbox" data-i="'+i+'"'+(d.retos[i]?' checked':'')+'> '+r+'</label></li>'}).join('')+'</ul><div class="prog" style="margin-top:1rem"><div id="pb"></div></div><p id="rm" role="status" style="margin-top:.8rem;font-weight:700"></p></div><div class="box q" id="qz"></div><p><a class="btn btn-sm" href="'+PUBLIC_URL+'#juegos">Más juegos en la web pública</a></p>';
+ function up(){var n=RETOS.filter(function(r,i){return d.retos[i]}).length;$('#pb').style.width=(n/RETOS.length*100)+'%';$('#rm').textContent=n===RETOS.length?'¡Semana completada! Cinco de cinco.':(n?n+' de 5. ¡Buen ritmo!':'')}
+ $('#rt').onchange=function(e){d.retos[e.target.dataset.i]=e.target.checked;persist(d);up()};up();
+ var qi=0,qs=0;function q(){var z=$('#qz');if(qi>=QZ.length){z.innerHTML='<p class="eyebrow">Partida rápida</p><p class="ok" role="status">¡Terminado! '+qs+' de '+QZ.length+'. Lo mejor es jugar.</p><p style="margin-top:1rem"><button class="btn btn-sm" id="qa">Otra vez</button></p>';$('#qa').onclick=function(){qi=0;qs=0;q()};return}
+  var Q=QZ[qi];z.innerHTML='<p class="eyebrow">Partida rápida · '+(qi+1)+' de '+QZ.length+'</p><h2 class="disp h2" style="margin:.4rem 0">'+Q[0]+'</h2>'+Q[1].map(function(o,k){return '<button class="o" data-k="'+k+'">'+o+'</button>'}).join('')+'<p id="qm" role="status" style="margin-top:.8rem;font-weight:700"></p><div id="qn"></div>';
+  z.querySelectorAll('.o').forEach(function(b){b.onclick=function(){var k=+b.dataset.k,bs=z.querySelectorAll('.o');bs.forEach(function(x){x.disabled=true});bs[Q[2]].classList.add('r');if(k===Q[2]){qs++;$('#qm').textContent='¡Correcto!'}else{b.classList.add('w');$('#qm').textContent='Casi. Era «'+Q[1][Q[2]]+'».'}$('#qn').innerHTML='<button class="btn btn-p btn-sm" id="qx" style="margin-top:.8rem">Siguiente</button>';$('#qx').onclick=function(){qi++;q()}}})}
+ q()}
+V.familia=function(el,d){el.innerHTML=head('Los tuyos','Mi familia','Las personas con las que compartes el club. Solo tú ves esta lista.')+'<div class="box"><div id="fl"></div></div><form class="box" id="ff" style="display:flex;flex-direction:column;gap:1rem"><p class="eyebrow">Añadir a alguien</p><div class="field"><label for="fn">Nombre</label><input class="inp" id="fn" maxlength="40"></div><div class="field"><label for="fr">Relación</label><select class="inp" id="fr"><option>Hijo/a</option><option>Nieto/a</option><option>Pareja</option><option>Hermano/a</option><option>Amigo/a</option></select></div><p class="note">Demo: usa nombres ficticios. No se guarda en ningún servidor.</p><button class="btn btn-p" style="align-self:flex-start">Añadir</button></form>';
+ var armed=null;function draw(){$('#fl').innerHTML=d.family.length?d.family.map(function(f){return '<div class="item"><div><b>'+esc(f.name)+'</b> <span class="muted">· '+esc(f.rel)+'</span></div><button class="btn btn-sm btn-d" data-id="'+f.id+'">'+(armed===f.id?'¿Seguro? Pulsa de nuevo':'Quitar')+'</button></div>'}).join(''):'<p class="muted">Todavía no has añadido a nadie.</p>'}
+ draw();$('#fl').onclick=function(e){var b=e.target.closest('button');if(!b)return;if(armed===b.dataset.id){d.family=d.family.filter(function(f){return f.id!==armed});persist(d);armed=null}else armed=b.dataset.id;draw()};
+ $('#ff').onsubmit=function(e){e.preventDefault();var n=$('#fn').value.trim();if(!n){toast('Escribe un nombre');return}d.family.push({id:uid(),name:n,rel:$('#fr').value});persist(d);$('#fn').value='';draw()}}
+V.album=function(el,d){el.innerHTML=head('Memoria','Mi álbum de recuerdos','Guarda recuerdos con una foto. Solo los ves tú.')+'<div class="album" id="al"></div><form class="box" id="fa" style="display:flex;flex-direction:column;gap:1rem"><p class="eyebrow">Nuevo recuerdo</p><div class="field"><label for="at">Título</label><input class="inp" id="at" maxlength="60"></div><div class="field"><label for="ax">Cuéntalo</label><textarea class="inp" id="ax" maxlength="400"></textarea></div><div class="field"><label for="ai">Foto (opcional)</label><input class="inp" id="ai" type="file" accept="image/*"></div><p class="note">Demo: la foto se guarda solo en este navegador. En la versión real irá a un almacenamiento privado y cifrado. No subas fotos reales.</p><button class="btn btn-p" style="align-self:flex-start">Guardar recuerdo</button></form>';
+ var armed=null;function draw(){$('#al').innerHTML=d.album.length?d.album.slice().reverse().map(function(a){return '<figure>'+(a.img?'<img alt="Foto del recuerdo: '+esc(a.title)+'" src="'+a.img+'">':'<div class="ph">Sin foto</div>')+'<figcaption><b>'+esc(a.title)+'</b><br><span class="muted">'+esc(a.date)+'</span><p>'+esc(a.text)+'</p><button class="btn btn-sm btn-d" data-id="'+a.id+'">'+(armed===a.id?'¿Seguro? Pulsa de nuevo':'Quitar')+'</button></figcaption></figure>'}).join(''):'<p class="muted">Tu álbum está vacío. Escribe tu primer recuerdo abajo.</p>'}
+ draw();$('#al').onclick=function(e){var b=e.target.closest('button');if(!b)return;if(armed===b.dataset.id){d.album=d.album.filter(function(a){return a.id!==armed});persist(d);armed=null}else armed=b.dataset.id;draw()};
+ $('#fa').onsubmit=function(e){e.preventDefault();var t=$('#at').value.trim();if(!t){toast('Ponle un título');return}
+  function save(img){d.album.push({id:uid(),title:t,text:$('#ax').value.trim(),date:new Date().toISOString().slice(0,10),img:img||''});try{persist(d);$('#at').value='';$('#ax').value='';$('#ai').value='';draw();toast('Recuerdo guardado')}catch(x){d.album.pop();toast('No cabe: prueba con una foto más pequeña')}}
+  var f=$('#ai').files[0];if(!f)return save('');var r=new FileReader();r.onload=function(){var im=new Image();im.onload=function(){var c=document.createElement('canvas'),s=Math.min(1,480/im.width);c.width=im.width*s;c.height=im.height*s;c.getContext('2d').drawImage(im,0,0,c.width,c.height);save(c.toDataURL('image/jpeg',.7))};im.onerror=function(){toast('No se pudo leer la foto');save('')};im.src=r.result};r.readAsDataURL(f)}}
+V.suscripciones=function(el){var p=PLANS[me.plan];el.innerHTML=head('Tu plan','Mis suscripciones')+'<div class="box"><p class="eyebrow">Suscripción activa (demo)</p><h2 class="disp h2" style="margin:.4rem 0 .8rem">'+p.n+'</h2><ul style="padding-left:1.2rem;display:flex;flex-direction:column;gap:.3rem">'+p.inc.map(function(i){return '<li>'+i+'</li>'}).join('')+'</ul><p style="margin-top:1rem"><b>Precio:</b> por definir.</p></div><div class="box"><p class="eyebrow">Cambiar de modalidad o regalar</p><p>Disponible próximamente. En esta fase no hay pagos ni precios definitivos.</p></div>'}
+V.perfil=function(el,d){el.innerHTML=head('Tus datos','Mi perfil')+'<form class="box" id="pf" style="display:flex;flex-direction:column;gap:1rem"><div class="field"><label for="pn">Nombre</label><input class="inp" id="pn" maxlength="40" value="'+esc(me.name)+'"></div><div class="field"><label for="pe">Correo (no se puede cambiar en la demo)</label><input class="inp" id="pe" readonly value="'+esc(me.email)+'"></div><fieldset style="border:0;padding:0;margin:0"><legend class="lbl">Privacidad y consentimiento</legend><label class="chk"><input type="checkbox" id="c1"'+(d.consent.priv?' checked':'')+'><span>Acepto la política de privacidad.</span></label><label class="chk"><input type="checkbox" id="c2"'+(d.consent.news?' checked':'')+'><span>Quiero recibir novedades del club (opcional).</span></label></fieldset><button class="btn btn-p" style="align-self:flex-start">Guardar cambios</button></form>'+
+ '<div class="box"><p class="eyebrow">Tamaño de letra</p><div class="row" style="margin-top:.6rem"><button class="btn btn-sm" data-s="-1">A−</button><button class="btn btn-sm" data-s="0">A</button><button class="btn btn-sm" data-s="1">A+</button></div></div><div class="row"><button class="btn" id="lo">Cerrar sesión</button><button class="btn btn-d" id="del">Borrar mis datos de la demo</button></div>';
+ $('#pf').onsubmit=function(e){e.preventDefault();var n=$('#pn').value.trim();if(!n){toast('El nombre no puede estar vacío');return}var us=API.users();us.forEach(function(u){if(u.id===me.id)u.name=n});API.saveUsers(us);me.name=n;d.consent={priv:$('#c1').checked,news:$('#c2').checked};persist(d);nav();toast('Cambios guardados')};
+ el.querySelectorAll('[data-s]').forEach(function(b){b.onclick=function(){fs(+b.dataset.s)}});
+ $('#lo').onclick=logout;var arm=false;$('#del').onclick=function(){if(!arm){arm=true;this.textContent='¿Seguro? Pulsa de nuevo';return}API.saveData(me.id,{read:{},family:[],album:[],retos:{},consent:{priv:true,news:false},sent:[]});toast('Datos borrados');route()}}
+V.ayuda=function(el){el.innerHTML=head('Estamos aquí','Ayuda y contacto')+'<div class="box"><details><summary>¿Cómo cambio el tamaño de la letra?</summary><p>En «Mi perfil» o con los botones A− / A+ de la parte superior.</p></details><details><summary>¿Quién ve mis fotos y mi familia?</summary><p>Solo tú. Cada cuenta tiene su espacio separado.</p></details><details><summary>He olvidado mi contraseña</summary><p>En la pantalla de acceso pulsa «He olvidado mi contraseña».</p></details><details><summary>¿Cómo cierro la sesión?</summary><p>Con el botón «Cerrar sesión» del menú. Volverás a la pantalla de acceso.</p></details></div><div class="box"><p class="eyebrow">Escríbenos</p><p style="margin:.4rem 0 1rem"><b>grandly@outlook.es</b></p><div class="row"><a class="btn btn-p btn-sm" href="mailto:grandly@outlook.es?subject=Ayuda%20GRANDLY%20Club">Abrir mi correo</a><button class="btn btn-sm" id="cp">Copiar correo</button></div><p class="muted" style="margin-top:.8rem;font-size:1rem">Si el botón no abre tu correo, copia la dirección.</p></div>';
+ $('#cp').onclick=function(){try{navigator.clipboard.writeText('grandly@outlook.es').then(function(){toast('Correo copiado')},function(){toast('Cópialo a mano')})}catch(e){toast('Cópialo a mano')}}}
+
+/* ---------- shell ---------- */
+var FS=[100,112,125,150],fsi=Math.max(0,Math.min(3,+(ls('gc_fs')||0)));function fs(d){fsi=d===0?0:Math.max(0,Math.min(3,fsi+d));ls('gc_fs',String(fsi));document.documentElement.style.fontSize=FS[fsi]+'%'}fs(fsi&&0);document.documentElement.style.fontSize=FS[fsi]+'%';
+function go(r){if(location.hash==='#'+r)route();else location.hash=r}
+function logout(){setSession(null);me=null;go('acceso')}
+var cur='';
+function nav(){if(!me)return;var d=API.data(me.id),un=LET.filter(function(l){return !d.read[l.id]}).length;var n=$('#navl');if(n)n.innerHTML=NAV.map(function(x){return '<li><a href="#'+x[0]+'"'+(x[0]===cur?' aria-current="page"':'')+'>'+x[1]+(x[0]==='buzon'&&un?'<span class="badge">'+un+'</span>':'')+'</a></li>'}).join('');var w=$('#whoN');if(w)w.textContent=me.name}
+function shell(){$('#root').innerHTML='<div class="app"><div class="top pad"><a class="logo" href="#espacio" style="font-size:1.1rem"><svg width="36" height="32" aria-hidden="true"><use href="#lg"/></svg>CLUB</a><div class="row" style="gap:.4rem"><button class="btn btn-sm" style="color:#fff;border-color:#fff" data-s="-1" aria-label="Reducir letra">A−</button><button class="btn btn-sm" style="color:#fff;border-color:#fff" data-s="1" aria-label="Aumentar letra">A+</button><button class="btn btn-sm" id="mb" style="color:#fff;border-color:#fff" aria-expanded="false" aria-controls="side">Menú</button></div></div>'+
+ '<aside class="side" id="side"><a class="logo" href="#espacio"><svg width="44" height="40" aria-hidden="true"><use href="#lg"/></svg>CLUB</a><nav aria-label="Área cliente"><ul id="navl"></ul></nav><div class="who"><span>Sesión de <b id="whoN"></b></span><div class="row" style="gap:.4rem"><button class="btn btn-sm" style="color:#fff;border-color:#fff" data-s="-1" aria-label="Reducir letra">A−</button><button class="btn btn-sm" style="color:#fff;border-color:#fff" data-s="1" aria-label="Aumentar letra">A+</button></div><a href="'+PUBLIC_URL+'" style="font-weight:600">← Volver a la web pública</a><button class="btn btn-sm" style="color:#fff;border-color:#fff" id="lo2">Cerrar sesión</button></div></aside>'+
+ '<main class="main pad"><div class="view" id="view"></div></main></div>';
+ $('#mb').onclick=function(){var s=$('#side'),o=!s.classList.contains('open');s.classList.toggle('open',o);this.setAttribute('aria-expanded',o)};$('#lo2').onclick=logout;
+ document.querySelectorAll('[data-s]').forEach(function(b){if(!b.closest('#view'))b.onclick=function(){fs(+b.dataset.s)}})}
+var shown=false;
+function route(){me=getSession();var r=(location.hash||'#').slice(1);
+ if(!me){shown=false;if(r!=='acceso'){history.replaceState(null,'','#acceso')}viewAccess('in');window.scrollTo(0,0);return}
+ if(r==='acceso'||!V[r]){r='espacio';history.replaceState(null,'','#espacio')}
+ if(!shown||!$('#view')){shell();shown=true}
+ cur=r;var d=API.data(me.id),v=$('#view');v.onclick=null;v.className='view';void v.offsetWidth;V[r](v,d);nav();$('#side').classList.remove('open');$('#mb').setAttribute('aria-expanded',false);
+ document.title='GRANDLY Club · '+NAV.filter(function(x){return x[0]===r})[0][1];window.scrollTo(0,0);var h=$('h1',v);if(h)h.focus({preventScroll:true})}
+window.addEventListener('hashchange',route);route();
+})();
+</script>
+</body></html>
